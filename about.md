@@ -3,14 +3,10 @@ title: About
 permalink: /about/
 ---
 
-You can see live demo [here](https://aweekj.github.io/Kiko-plus). This theme is inspired by [Kiko](http://github.com/gfjaru/Kiko) theme.
+Mobile Developer(swift, objective-C, javaScript)
 
-## Features
+## Contact me
 
-- Disqus comment system
-- Google analytics
-- Pagination support
-- Custom tags
-- SEO support
+[idmarystar@gmail.com](mailto:idmarystar@gmail.com)
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "SpriteKit으로 게임 만들기"
-description: "애플워치와 아이폰에서 모두 사용할 수 있는 간단한 게임을 만들게 되었습니다."
+title: "SpriteKit으로 게임 개발하기"
+description: "iOS와 WatchOS에서 구동 가능한 게임 개발하기"
 date: 2017-05-17
 tags: [game, swift, spritekit, applewatch, watchgame]
 comments: true
@@ -9,6 +9,9 @@ share: true
 ---
 
 애플워치와 아이폰에서 모두 플레이 할 수 있는 간단한 게임을 만들 기회가 생겨서 spriteKit을 사용해본 경험을 정리해 보고자 합니다.
+
+![큰 이미지](/images/20170517-1.jpg)
+[Judgement Day - Heaven or Hell 다운로드하기](https://appsto.re/kr/JxHojb.i)
 
 랜덤하게 발생하는 아이템을 각각 왼쪽과 오른쪽으로 올바르게 보내면 스코어가 쌓이는 게임으로, 약간의 애니메이션과 콤보모드가 있습니다. 
 
@@ -137,6 +140,8 @@ func addMonster() {
 }
 ```
 처음 진행하는 게임프로젝트였고, spriteKit을 처음 적용해보았기 때문에 생각보다 시간이 많이 걸렸고, 애플워치 때문에 spriteKit으로 구현은 했지만, 막상 애플워치에서 무리없이 구동된다고 하기에는 무리가 있었습니다. 복잡하고 안정성을 요하는 게임에는 아무래도 Unity가 적절하지 않나 생각합니다.
+
+[Judgement Day - Heaven or Hell 다운로드하기](https://appsto.re/kr/JxHojb.i)
 
 
 
