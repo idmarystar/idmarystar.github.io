@@ -82,8 +82,8 @@ category를 통해 physics body가 충돌할 때 어떤 종류의 sprite인지 �
 struct PhysicsCategory {
   static let None      : UInt32 = 0
   static let All       : UInt32 = UInt32.max
-  static let Monster   : UInt32 = 0b1       // 1
-  static let Projectile: UInt32 = 0b10      // 2
+  static let Monster   : UInt32 = 0b1       
+  static let Projectile: UInt32 = 0b10      
 }
 ```
 
@@ -136,7 +136,7 @@ func addMonster() {
 ...
 }
 ```
-처음 진행하는 게임프로젝트였고, spriteKit을 처음 적용해보았기 때문에 생각만큼 단기간에 완료하기는 힘들었습니다. 애플워치 때문에 spriteKit으로 구현은 했지만, 막상 애플워치에서 무리없이 구동된다고 하기에는 무리가 있었습니다. 복잡하고 안정성을 요하는 게임에는 아무래도 Unity가 적절하지 않나 하는 생각입니다. 
+처음 진행하는 게임프로젝트였고, spriteKit을 처음 적용해보았기 때문에 생각보다 시간이 많이 걸렸고, 애플워치 때문에 spriteKit으로 구현은 했지만, 막상 애플워치에서 무리없이 구동된다고 하기에는 무리가 있었습니다. 복잡하고 안정성을 요하는 게임에는 아무래도 Unity가 적절하지 않나 생각합니다.
 
 
 
