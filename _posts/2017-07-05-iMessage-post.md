@@ -8,7 +8,7 @@ comments: true
 share: true
 ---
 
-iOS 10 부터 아이폰 사용자들은 iMessage App을 좀 더 다양하게 사용할 수 있게 되었습니다.     
+iOS10 부터 아이폰 사용자들은 iMessage App을 좀 더 다양하게 사용할 수 있게 되었습니다.     
 스티커를 전송하거나, 작업을 같이 하거나, 게임 대결을 신청할 수도 있는데, 그 중 게임대결 신청하기는 게임센터의 친구초대 기능을 대신한다고 할 수 있습니다.
 
 ## iMessage App
@@ -16,7 +16,7 @@ iOS 10 부터 아이폰 사용자들은 iMessage App을 좀 더 다양하게 사
 iMessage App은 기존 프로젝트에 타겟을 추가해서 생성할 수도 있지만 독립적으로 생성할 수도 있습니다.  
 그래서 타겟을 설정할 때에도 Application Extension이 아니라 Application 항목에서 찾을 수 있습니다.
 
-## Message bubble
+## Message
 상대방에게 메시지를 전송할 때 말풍선을 만듭니다.
 말풍선에는 caption, image, imageTitle, trailing caption이 있으며 MSMessageTemplateLayout을 통해 요소를 생성합니다.  
 
