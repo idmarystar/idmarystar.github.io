@@ -35,14 +35,14 @@ message.layout = layout
 
 ## MessagesAppViewController
 MSMessagesAppPresentationStyle에는 두가지 타입이 있습니다.  
-iMessage 대화하기 창에서 (키보드가 자리한 위치에) 작은창으로 보여주는 Compact,
 
 ### Compact View
 ![큰 이미지](/images/20170705/20170705-1.png)
+iMessage 대화하기 창에서 (키보드가 자리한 위치에) 작은창으로 보여주는 Compact.
 
-전체화면으로 볼 수 있는 Expanded가 있습니다.
 ### Expanded View
 ![큰 이미지](/images/20170705/20170705-2.png)
+전체화면으로 볼 수 있는 Expanded가 있습니다.
 
 두가지 스타일이 변경되기 전에 willTransition 메서드가 호출되며, 전달되는 인수인 presentationStyle에 맞는 뷰를 띄울 수 있습니다.
 ```swift
