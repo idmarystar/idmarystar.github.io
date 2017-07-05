@@ -2,7 +2,7 @@
 layout: post
 title: "iMessage App 만들기"
 description: "iMessage Game App으로 게임대결 신청하기"
-date: 2017-05-17
+date: 2017-07-05
 tags: [game, swift, spritekit, iMessage, iMessageApp, iOS, judgementDay]
 comments: true
 share: true
