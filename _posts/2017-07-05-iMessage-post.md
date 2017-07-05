@@ -80,7 +80,7 @@ func presentExpandedViewController(with presentationStyle: MSMessagesAppPresenta
 
 ## Session
 세션을 통해 메시지를 만들고 업데이트 합니다.
-메시지를 업데이트하여 세션을 유지할 수도 있고 새로운 메시지를 만들어 새로운시 세션으로 만들 수도 있습니다.
+메시지를 업데이트하여 세션을 유지할 수도 있고 새로운 메시지를 만들어 새로운 세션으로 만들 수도 있습니다.
 세션이 없다면 각각의 단일 메시지로 표시 됩니다.
 
 ```swift
