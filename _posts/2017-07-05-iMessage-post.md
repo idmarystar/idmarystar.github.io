@@ -109,10 +109,9 @@ conversation?.insert(message, completionHandler: nil)
 ```
 
 ## Game Scene 띄우기
-iMessage App의 MSMessagesAppViewController도 UIViewController를 상속 받았으므로 별다른 어려움 없이 기존의 프로젝트와 동일하게 Scene을 로드할 수 있었습니다.
-아직까지는 별다른 제약조건을 찾지 못했기 때문에 어느정도 복잡한 UI도 적용가능하리라 봅니다.
+iMessage App의 MSMessagesAppViewController도 UIViewController를 상속 받았으므로 기존의 프로젝트와 동일하게 Scene을 로드하여 컨트롤합니다. 
 
-iMessage App은 기존 게임센터의 친구초대 기능과 달리, 사용자가 국한되는것이 아니라 내 연락처에 있는 모든 사용자에게 게임 대결을 신청할 수 있기 때문에 어느정도 사용자가 늘어나는 것도 기대해 볼 수 있을 듯 합니다.
+iMessage App은 게임센터의 친구초대 기능과 달리, 사용자가 국한되는것이 아니라 내 연락처에 있는 모든 사용자에게 게임 대결을 신청할 수 있기 때문에 게임 사용자가 늘어나는 것도 기대해 볼 수 있을 것 같습니다.
 
 
 
