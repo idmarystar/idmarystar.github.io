@@ -188,7 +188,7 @@ textField의 값을 subject에 바인딩 합니다.
     }
 ```
 여기서 주목해야 할 것 중 하나는 `nameValid`가 `subscribe`할 때 **self**를 **weak**로 쓴다는 것입니다.  
-`viewController`의 생명주기가 끝이 나더라도 이벤트 바인딩한 것이 메모리에서 해제되지 않기 때문에 그냥 self가 아니라 `weak self`를 써주어야 합니다.  
+`viewController`의 생명주기가 끝이 나더라도 UI event는 종료되지 않고 reference count가 계속 증가하게 됩니다. 때문에 그냥 self가 아니라 `weak self`를 써주어야 합니다.  
 만약 `weak self`가 싫다면 아래의 방법도 가능합니다.
 ```swift
     override func viewWillDisappear(_ animated: Bool) {
