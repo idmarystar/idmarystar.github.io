@@ -145,7 +145,7 @@ textField의 `delegate`를 설정하고 delegate method에서 사용자가 입�
     let name: BehaviorSubject<String> = BehaviorSubject(value: "")
 ```
 textField의 값을 subject에 바인딩 합니다.
-```swift
+```swift 
     func bindEvent() {
         nameField.rx.text.orEmpty
                 .bind(to: name)
