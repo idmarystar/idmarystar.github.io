@@ -9,12 +9,13 @@ share: true
 ---
 
 # RxSwift + RxMoya + Codable
-rxSwift를 코드로 쉽게 적용할 수 있는 방법 중 하나로 api통신 코드에 적용해 보았습니다.  
+rxSwift를 코드로 쉽게 적용할 수 있는 방법 중 하나로 api통신 코드를 작성해 보았습니다.  
 기존에 이용하던 Moya 대신 [rxMoya](https://github.com/Moya/Moya)를 이용하였으며, Swift4.0부터 JSON parsing을 처리해주는 프로토콜인 [Codable](https://developer.apple.com/documentation/swift/codable)도 같이 사용하였습니다.
 
 ## Codable로 모델 선언
 Codable은 프로토콜입니다.  
-이 프로토콜을 채택하여 json을 encode하거나 decode 할 수 있으며, class, struct, enum에서 모두 사용할 수 있습니다. 저는 struct로 모델을 만들었습니다.
+이 프로토콜을 채택하여 json을 encode하거나 decode 할 수 있으며, class, struct, enum에서 모두 사용할 수 있습니다.  
+저는 struct로 모델을 만들었습니다.
 
 ```swift
 struct User: Codable {
@@ -111,24 +112,22 @@ extension provider: TargetType {
             .disposed(by: disposeBag)
     }
 ```
-rx답게 읽어보자면, provider의 rx에게 요청(request)하고 모델화(map) 한 다음 실행(subscribe)할게! 정도 되려나요? 🙃  
-어쨌든 선형적으로 읽히긴 합니다. 더 고급스러운 코드를 짠다면 장점이 더 부각될거에요.
+rx답게 읽어보자면, provider의 rx에게 요청 `request`하고 모델화 `map` 한 다음 실행 `subscribe` 할게! 정도 되려나요? 🙃  
+어쨌든 선형적으로 읽히긴 합니다. 더 고급스러운 코드를 짠다면 장점이 더욱 부각될거에요.
 
 ## UI Event with binding
 Github User 정보를 가져오기 위해서 사용자가 입력한 이름을 얻어내고자 합니다.  
-UITextField와 UIButton에서 이벤트를 가져오는 코드로, 사용자가 이름을 입력하면 버튼이 활성화되고 아무것도 입력하지 않으면 비활성화됩니다.
+`UITextField`와 `UIButton`에서 이벤트를 가져오는 코드로, 사용자가 이름을 입력하면 버튼이 활성화되고 아무것도 입력하지 않으면 비활성화됩니다.
 
 **Legacy Code**   
-textField의 delegate를 설정하고 delegate method에서 사용자가 입력한 문자열의 유효성을 검사합니다.  
+textField의 `delegate`를 설정하고 delegate method에서 사용자가 입력한 문자열의 유효성을 검사합니다.  
 (예제라서 아주 간단하게 검사했습니다...🙄)
 ```swift
     nameField.delegate = self
 ```
 ```swift
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.count > 0 && !string.contains(" ") {
-            getButton.isEnabled = string.count > 0    
-        }
+        getButton.isEnabled = string.count > 0 && !string.contains(" ")
         return true
     }
 ```
@@ -140,11 +139,12 @@ textField의 delegate를 설정하고 delegate method에서 사용자가 입력�
 
 **rx Code**  
 위의 과정을 rxSwift로 작성한 코드입니다.  
-먼저 textField의 값을 binding 할 수 있는 **BehaviorSubject**를 만듭니다. (BehaviorSubject : 가장 최근에 발생한 아이템을 배출, 이 후 observable에 의한 결과 아이템을 계속 배출, 초기값이 반드시 있어야 함)  
+먼저 textField의 값을 바인딩 할 수 있는 **BehaviorSubject**를 만듭니다.  
+(**BehaviorSubject** : 가장 최근에 발생한 아이템을 배출, 이 후 observable에 의한 결과 아이템을 계속 배출, `초기값`이 반드시 있어야 함)  
 ```swift
     let name: BehaviorSubject<String> = BehaviorSubject(value: "")
 ```
-textField의 값을 subject에 binding 합니다.
+textField의 값을 subject에 바인딩 합니다.
 ```swift
     func bindEvent() {
         nameField.rx.text.orEmpty
@@ -169,7 +169,7 @@ textField의 값을 subject에 binding 합니다.
     }
 ```
 이제 get button을 활성화 하기 위해서 Bool 타입의 subject를 만들고, 입력값을 검사하여 버튼의 활성화 여부를 결정합니다.  
-사실, 굳이 subject를 만들필요까진 없어보일 수 도 있지만, 한번 써보고 싶었어요...😬
+사실, 굳이 subject를 만들 필요까진 없어보일 수 도 있지만, 한번 써보고 싶었어요...😬
 ```swift
     let nameValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
 
@@ -187,19 +187,20 @@ textField의 값을 subject에 binding 합니다.
         }).disposed(by: disposeBag)
     }
 ```
-여기서 주목해야 할 것 중 하나는 nameValid가 subscribe할 때 **self**를 **weak**로 쓴다는 것입니다.  
-viewController의 생명주기가 끝이 나더라도 이벤트 바인딩한 것이 메모리에서 해제되지 않기 때문에 그냥 self가 아니라 weak self를 써주어야 합니다. 만약 weak self가 싫다면 아래의 방법도 가능합니다.
+여기서 주목해야 할 것 중 하나는 `nameValid`가 `subscribe`할 때 **self**를 **weak**로 쓴다는 것입니다.  
+`viewController`의 생명주기가 끝이 나더라도 이벤트 바인딩한 것이 메모리에서 해제되지 않기 때문에 그냥 self가 아니라 `weak self`를 써주어야 합니다.  
+만약 `weak self`가 싫다면 아래의 방법도 가능합니다.
 ```swift
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         disposeBag = DisposeBag()
     }
 ```
-viewController가 사라질 때 disposeBag을 다시 생성해주기만 하면 됩니다. (가방을 비워내는거죠 :D)  
+viewController가 사라질 때 `disposeBag`을 다시 생성해주기만 하면 됩니다. (가방을 비워내는거죠 :D)  
 
 ## 호출
-마지막으로 userInfo 함수를 호출하여 값을 확인해보겠습니다.  
-우선 viewDidLoad()에서 event binding을 준비하고, 버튼 액션이 있을 때 호출만 해주면 끝!  
+마지막으로 `userInfo()` 함수를 호출하여 값을 확인해보겠습니다.  
+우선 `viewDidLoad()`에서 event binding을 준비하고, 버튼 액션이 있을 때 호출만 해주면 끝!  
 
 ```swift
     override func viewDidLoad() {
@@ -215,7 +216,8 @@ viewController가 사라질 때 disposeBag을 다시 생성해주기만 하면 �
 ```
 
 간단한 기능 구현을 통해서 rxSwift를 활용하는 방법에 대한 글이었습니다.  
-잘못된 정보, 오류 코드가 있다면 피드백 환영합니다! 모두 Happy Coding!🙏
+잘못된 정보, 오류 코드가 있다면 피드백 환영합니다!  
+모두 **Happy Coding!**🙏
 
 
 
