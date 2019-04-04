@@ -115,7 +115,7 @@ extension provider: TargetType {
 rx답게 읽어보자면, provider의 rx에게 요청 `request`하고 모델화 `map` 한 다음 실행 `subscribe` 할게! 정도 되려나요? 🙃  
 어쨌든 선형적으로 읽히긴 합니다. 더 고급스러운 코드를 짠다면 장점이 더욱 부각될거에요.
 
-## UI Event with binding
+## UI Event binding
 Github User 정보를 가져오기 위해서 사용자가 입력한 이름을 얻어내고자 합니다.  
 `UITextField`와 `UIButton`에서 이벤트를 가져오는 코드로, 사용자가 이름을 입력하면 버튼이 활성화되고 아무것도 입력하지 않으면 비활성화됩니다.
 
