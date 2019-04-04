@@ -7,7 +7,7 @@ tags: [reactiveX, RxSwift, swift, iOS]
 comments: true
 share: true
 ---
-
+ 
 # RxSwift + RxMoya + Codable
 rxSwift를 코드로 쉽게 적용할 수 있는 방법 중 하나로 api통신 코드를 작성해 보았습니다.  
 기존에 이용하던 Moya 대신 [rxMoya](https://github.com/Moya/Moya)를 이용하였으며, Swift4.0부터 JSON parsing을 처리해주는 프로토콜인 [Codable](https://developer.apple.com/documentation/swift/codable)도 같이 사용하였습니다.
